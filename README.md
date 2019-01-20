@@ -1,5 +1,4 @@
 # dog
-*https://ionutrzv01.github.io/dog/
+https://ionutrzv01.github.io/dog/ - automatic!
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
+
