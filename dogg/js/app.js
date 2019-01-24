@@ -21,17 +21,6 @@ const form = document.querySelector('form'); // <form>
 // PAS 2: obtine o imagine random (https://dog.ceo/api/breeds/image/random) 
 // Apeleaza functia custom generateImage, care afiseaza raspunsul in <div>  
 
-var newElement = document.createElement("img");
-
-function generateImage() {  
-    var Fet = fetch('https://dog.ceo/api/breeds/image/random')
-    .then(response => response.json())    
-    .then(data =>newElement.src=data.message);     
-}
-generateImage();
-
-card.appendChild(newElement);
-
 
 // PAS 3: obtine o lista de rase de caini (https://dog.ceo/api/breeds/list)
 // Apeleaza functia custom generateOptions, care afiseaza raspunsul in <select> 
@@ -62,7 +51,11 @@ var newVar=fetch('https://dog.ceo/api/breeds/list')
 
 // PAS 6: Creati o functie fetchData(url) care sa automatizeze primii doi pasi dintr-un request 
 // (trimiterea request-ului si parsarea raspunsului JSON)
-
+function fetchData(url,fnc){
+fetch(url)
+.then(res=>res.json())
+.then(data=>fnc(data))
+}
 
 // PAS 7 - atasati cu metoda .catch() un handler care sa afiseze in consola un mesaj custom de eroare 
 // si eroarea primita de la server. Ca sa va asigurati ca functioneaza, schimbati url-ul catre care
