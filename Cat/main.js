@@ -10,6 +10,7 @@ const buton5 = document.getElementById("space");
 const buton6 = document.getElementById("sunglasses");
 const buton7 = document.getElementById("ties");
 const buton8 = document.getElementById("gif");
+const pisicute = document.getElementById("pisicute");
 var img = document.createElement("img");
 const butoane = [buton1, buton2, buton3, buton4, buton5, buton6, buton7, buton8];
 const login = { headers: { "x-api-key": "7c59bf11-7fe0-4615-9ba0-327d59f34266" } };
@@ -26,10 +27,10 @@ function generateImage(x) {
 }
 
 function generateImage1(y) {
-    var img1 = document.createElement("img");
-    img1.src = y;
-    poz.appendChild(img1);
-    img1.style = "width:45%"
+    var img = document.createElement("img");
+    img.src = y;
+    poz.appendChild(img);
+    img.style = "width:45%"
 }
 
 
@@ -78,3 +79,11 @@ function butons(but, adresa) {
 for (i = 0; i < 9; i++) {
     butons(butoane[i], adrese[i]);
 };
+
+
+pisicute.addEventListener('change', (e) => {
+    fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${pisicute.value}`, login)
+        .then(res => res.json())
+        .then(data => generateImage(data[0].url)
+        );
+});
