@@ -19,10 +19,10 @@ function generateImage(x) {
     img.style = "width:100% "
 }
 
-function generateImagegif(z){
-    var img1 =document.createElement('img')
-    img1.src=z;
-    img1.setAttribute("src","gif_path");
+function generateImagegif(z) {
+    var img1 = document.createElement('img')
+    img1.src = z;
+    img1.setAttribute("src", "gif_path");
     poz.appendChild(img1);
 }
 
@@ -30,10 +30,10 @@ function generateImage1(y) {
     var img1 = document.createElement("img");
     img1.src = y;
     poz.appendChild(img1);
-    img1.style="width:45%"
+    img1.style = "width:45%"
 
 }
-poz.style="width:50%";
+poz.style = "width:50%";
 
 
 card.style = "width:50%";
@@ -42,14 +42,10 @@ generateImage("https://www.kimballstock.com/pix/COU/01/COU_01_DB0012_01_P.JPG");
 
 function lista(pisica) {
     for (i = 0; i < pisica.length; i++) {
-
         var lista = document.createElement('option');
         lista.value = pisica[i].id;
         lista.innerText = pisica[i].name;
-
-
         select.appendChild(lista);
-
     }
 }
 
@@ -89,99 +85,117 @@ card.addEventListener("click", (e) => {
 
 });
 
-buton1.addEventListener('click', (e) => {
-    poz.innerHTML="";
-    fetch("https://api.thecatapi.com/v1/images/search?category_ids=5&limit=5", login)
-        .then(res => res.json())
-        .then(data => {
-            for (var i = 0; i < 6; i++) {
-                generateImage1(data[i].url)
-            }
-        });
+// buton1.addEventListener('click', (e) => {
+//     poz.innerHTML="";
+//     fetch("https://api.thecatapi.com/v1/images/search?category_ids=5&limit=5", login)
+//         .then(res => res.json())
+//         .then(data => {
+//             for (var i = 0; i < 6; i++) {
+//                 generateImage1(data[i].url)
+//             }
+//         });
 
-})
+// })
 
-buton2.addEventListener('click', (e) => {
-    poz.innerHTML="";
-    fetch("https://api.thecatapi.com/v1/images/search?category_ids=15&limit=5", login)
-        .then(res => res.json())
-        .then(data => {
-            for (var i = 0; i < 6; i++) {
-                generateImage1(data[i].url)
+// buton2.addEventListener('click', (e) => {
+//     poz.innerHTML="";
+//     fetch("https://api.thecatapi.com/v1/images/search?category_ids=15&limit=5", login)
+//         .then(res => res.json())
+//         .then(data => {
+//             for (var i = 0; i < 6; i++) {
+//                 generateImage1(data[i].url)
 
-            }
-        });
+//             }
+//         });
 
-})
+// })
 
-buton3.addEventListener('click', (e) => {
-    poz.innerHTML="";
-    fetch("https://api.thecatapi.com/v1/images/search?category_ids=1&limit=5", login)
-        .then(res => res.json())
-        .then(data => {
-            for (var i = 0; i < 6; i++) {
-                generateImage1(data[i].url)
+// buton3.addEventListener('click', (e) => {
+//     poz.innerHTML="";
+//     fetch("https://api.thecatapi.com/v1/images/search?category_ids=1&limit=5", login)
+//         .then(res => res.json())
+//         .then(data => {
+//             for (var i = 0; i < 6; i++) {
+//                 generateImage1(data[i].url)
 
-            }
-        });
+//             }
+//         });
 
-})
+// })
 
-buton4.addEventListener('click', (e) => {
-    poz.innerHTML="";
-    fetch("https://api.thecatapi.com/v1/images/search?category_ids=14&limit=5", login)
-        .then(res => res.json())
-        .then(data => {
-            for (var i = 0; i < 6; i++) {
-                generateImage1(data[i].url)
+// buton4.addEventListener('click', (e) => {
+//     poz.innerHTML="";
+//     fetch("https://api.thecatapi.com/v1/images/search?category_ids=14&limit=5", login)
+//         .then(res => res.json())
+//         .then(data => {
+//             for (var i = 0; i < 6; i++) {
+//                 generateImage1(data[i].url)
 
-            }
-        });
+//             }
+//         });
 
-})
+// })
 
-buton5.addEventListener('click', (e) => {
-    poz.innerHTML="";
-    fetch("https://api.thecatapi.com/v1/images/search?category_ids=2&limit=5", login)
-        .then(res => res.json())
-        .then(data => {
-            for (var i = 0; i < 6; i++) {
-                generateImage1(data[i].url)
+// buton5.addEventListener('click', (e) => {
+//     poz.innerHTML="";
+//     fetch("https://api.thecatapi.com/v1/images/search?category_ids=2&limit=5", login)
+//         .then(res => res.json())
+//         .then(data => {
+//             for (var i = 0; i < 6; i++) {
+//                 generateImage1(data[i].url)
 
-            }
-        });
+//             }
+//         });
 
-})
+// })
 
-buton6.addEventListener('click', (e) => {
-    poz.innerHTML="";
-    fetch("https://api.thecatapi.com/v1/images/search?category_ids=4&limit=5", login)
-        .then(res => res.json())
-        .then(data => {
-            for (var i = 0; i < 6; i++) {
-                generateImage1(data[i].url)
+// buton6.addEventListener('click', (e) => {
+//     poz.innerHTML="";
+//     fetch("https://api.thecatapi.com/v1/images/search?category_ids=4&limit=5", login)
+//         .then(res => res.json())
+//         .then(data => {
+//             for (var i = 0; i < 6; i++) {
+//                 generateImage1(data[i].url)
 
-            }
-        });
+//             }
+//         });
 
-})
-buton7.addEventListener('click', (e) => {
-    poz.innerHTML="";
-    fetch("https://api.thecatapi.com/v1/images/search?category_ids=7&limit=5", login)
-        .then(res => res.json())
-        .then(data => {
-            for (var i = 0; i < 6; i++) {
-                generateImage1(data[i].url)
+// })
+// buton7.addEventListener('click', (e) => {
+//     poz.innerHTML="";
+//     fetch("https://api.thecatapi.com/v1/images/search?category_ids=7&limit=5", login)
+//         .then(res => res.json())
+//         .then(data => {
+//             for (var i = 0; i < 6; i++) {
+//                 generateImage1(data[i].url)
 
-            }
-        });
+//             }
+//         });
 
-})
-buton8.addEventListener('click', (e) => {
-    poz.innerHTML="";
-    fetch("https://api.thecatapi.com/v1/images/search?mime_types=gif", login)
-        .then(res => res.json())
-        .then(data => {generateImage1(data[0].url)
-        });
+// })
+// buton8.addEventListener('click', (e) => {
+//     poz.innerHTML="";
+//     fetch("https://api.thecatapi.com/v1/images/search?mime_types=gif", login)
+//         .then(res => res.json())
+//         .then(data => {generateImage1(data[0].url)
+//         });
 
-})
+// })
+
+const butoane = [buton1, buton2, buton3, buton4, buton5, buton6, buton7, buton8];
+const adrese = ["https://api.thecatapi.com/v1/images/search?category_ids=5&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=15&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=1&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=14&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=2&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=4&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=7&limit=5","https://api.thecatapi.com/v1/images/search?mime_types=gif&limit=5"];
+
+function butons(but, adresa) {
+    but.addEventListener('click', (e) => {
+        poz.innerHTML = "";
+        fetch(adresa, login)
+            .then(res => res.json())
+            .then(data => {
+                for (var i = 0; i < 6; i++) { generateImage1(data[i].url) }
+            });
+    })
+};
+
+for (i = 0; i < 9; i++) {
+    butons(butoane[i], adrese[i]);
+}
