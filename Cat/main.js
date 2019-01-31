@@ -2,6 +2,7 @@ const buton = document.getElementById("buton");
 const select = document.getElementById('select');                   ///Rase pisici
 const card = document.getElementById("poza");
 const poz = document.getElementById("poz");
+const poz1 = document.getElementById("poz1");
 const buton1 = document.getElementById("boxes");
 const buton2 = document.getElementById("clothes");
 const buton3 = document.getElementById("hats");
@@ -82,8 +83,21 @@ for (i = 0; i < 9; i++) {
 
 
 pisicute.addEventListener('change', (e) => {
-    fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${pisicute.value}`, login)
-        .then(res => res.json())
-        .then(data => generateImage(data[0].url)
-        );
+
+    for (var i = 0; i < 67; i++) {
+        if (select[i].indexOf(pisicute.value) != -1){
+
+            fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${select[i].value}`, login)
+            .then(res => res.json())
+            .then(data => {
+                var img = document.createElement("img");
+                img.src=data;
+                poz1.appendChild(data[0].url)
+               }
+            );
+    }
+
+        }
 });
+
+  
