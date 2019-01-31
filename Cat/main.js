@@ -1,5 +1,5 @@
 const buton = document.getElementById("buton");
-const select = document.getElementById('select');                   ///Rase pisici
+const select = document.getElementById('select');              
 const card = document.getElementById("poza");
 const poz = document.getElementById("poz");
 const poz1 = document.getElementById("poz1");
