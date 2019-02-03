@@ -93,18 +93,11 @@ function funcBreed(data) {
 
 pisicute.addEventListener('keyup', (e) => {
 
-    searchedBreeds = breeds.filter(item => item.name.indexOf(pisicute.value) !== -1).map(item=> fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breeds.id}`, login)).then(res=>res.json())
-    
+    searchedBreeds = breeds.filter(item => item.name.indexOf(pisicute.value) !== -1).map(item=> fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breeds.id}`, login).then(res=>res.json()))
 
-    
-    Promise.all(searchedBreeds).then(data=> console.log(data))
-    
-    
-}
+Promise.all(searchedBreeds)
+.then(values=>values[0])
 
-
-
-
-)
+})
 
 
