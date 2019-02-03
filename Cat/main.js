@@ -16,8 +16,9 @@ var img = document.createElement("img");
 const butoane = [buton1, buton2, buton3, buton4, buton5, buton6, buton7, buton8];
 const login = { headers: { "x-api-key": "7c59bf11-7fe0-4615-9ba0-327d59f34266" } };
 const adrese = ["https://api.thecatapi.com/v1/images/search?category_ids=5&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=15&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=1&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=14&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=2&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=4&limit=5", "https://api.thecatapi.com/v1/images/search?category_ids=7&limit=5", "https://api.thecatapi.com/v1/images/search?mime_types=gif&limit=5"];
+var breeds= [];
 
-var breeds = [];
+
 
 poz.style = "width:50%";
 card.style = "width:50%";
@@ -39,8 +40,6 @@ function generateImage1(y) {
 
 function lista(pisica) {
     for (i = 0; i < pisica.length; i++) {
-        breeds.name = pisica[i].name;
-        breeds.id = pisica[i].id;
         var lista = document.createElement('option');
         lista.value = pisica[i].id;
         lista.innerText = pisica[i].name;
@@ -50,7 +49,9 @@ function lista(pisica) {
 
 var newVar = fetch("https://api.thecatapi.com/v1/breeds")
     .then((response) => response.json())
-    .then((data) => lista(data));
+    .then((data) => {
+        breeds=data;
+        lista(data)});
 
 select.addEventListener("change", (e) => {
     fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${select.value}`, login)
@@ -83,17 +84,13 @@ for (i = 0; i < 9; i++) {
     butons(butoane[i], adrese[i]);
 };
 
-var breedFind = fetch("https://api.thecatapi.com/v1/breeds")
-    .then((response) => response.json())
-    .then((data) => funcBreed(data));
 
-function funcBreed(data) {
-    breeds = data.map(item => (item))
-}
+
+    
 
 pisicute.addEventListener('keyup', (e) => {
-
-    searchedBreeds = breeds.filter(item => item.name.indexOf(pisicute.value) !== -1).map(item=> fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breeds.id}`, login)).then(res=>res.json())
+    
+    searchedBreeds = breeds.filter(item => item.name.indexOf(pisicute.value) !== -1).map(item=> fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${item.id}`, login)).then(res=>res.json())
     
 
     
