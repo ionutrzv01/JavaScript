@@ -50,7 +50,7 @@ function generateImage(x) {
 
 function generateImage1(y) {
   var img = document.createElement("img");
-  img.src = y;
+  img.src = y.url;
   poz.appendChild(img);
   img.style = "width:45%";
 }
@@ -70,6 +70,20 @@ var newVar = fetch("https://api.thecatapi.com/v1/breeds")
     breeds = data;
     lista(data);
   });
+
+function butons(but, adresa) {
+  but.addEventListener("click", e => {
+    poz.innerHTML = "";
+    fetch(adresa, login)
+      .then(res => res.json())
+      .then(data => {
+        for (var i = 0; i < 6; i++) {
+          generateImage1(data[i]);
+        }
+      });
+  });
+}
+
 
 select.addEventListener("change", e => {
   fetch(
@@ -94,22 +108,8 @@ card.addEventListener("click", e => {
     });
 });
 
-function butons(but, adresa) {
-  but.addEventListener("click", e => {
-    poz.innerHTML = "";
-    fetch(adresa, login)
-      .then(res => res.json())
-      .then(data => {
-        for (var i = 0; i < 6; i++) {
-          generateImage1(data[i].url);
-        }
-      });
-  });
-}
 
-// for (i = 0; i < 9; i++) {
-//     butons(butoane[i], adrese[i]);
-// };
+
 
 pisicute.addEventListener("keyup", e => {
   poz1.innerHTML = "";
@@ -125,5 +125,25 @@ pisicute.addEventListener("keyup", e => {
       ).then(res => res.json())
     );
 
-  Promise.all(searchedBreeds).then(data =>console.log(data));
+  Promise.all(searchedBreeds).then(data => Cat_search(data, searchedBreeds.length));
 });
+
+
+function Cat_search(x, listlenght) {
+  for (var i = 0; i < 4; i++) {
+    var random = Math.floor(Math.random() * listlenght);
+    var random2 = Math.floor(Math.random() * 4);
+    var img = document.createElement("img");
+    img.src = x[random][random2].url;
+    poz1.appendChild(img);
+    img.style = "width:45%";
+  }
+}
+
+for (i = 0; i < 9; i++) {
+  butons(butoane[i], adrese[i]);
+};
+
+
+
+
